@@ -12,13 +12,13 @@ interface Props {
 const FileInput: React.FC<Props> = ({onChange, name, label}) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [filename, setFilename] = useState('');
+  const [filename, setFileName] = useState('');
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFilename(e.target.files[0].name);
+      setFileName(e.target.files[0].name);
     } else {
-      setFilename('');
+      setFileName('');
     }
 
     onChange(e);
@@ -27,6 +27,8 @@ const FileInput: React.FC<Props> = ({onChange, name, label}) => {
   const activateInput = () => {
     if (inputRef.current) {
       inputRef.current.click();
+    }else{
+      setFileName('');
     }
   };
 

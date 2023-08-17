@@ -11,7 +11,7 @@ import { LoadingButton } from '@mui/lab';
 const PostsForm = () => {
   const initialPost: PostMutation = {
     message: '',
-    author: 'Аноним',
+    author: '',
     image: null
   }
   const [postState, setPostState] = useState<PostMutation>(initialPost);
@@ -20,6 +20,9 @@ const PostsForm = () => {
 
   const submitFormHandler = async (e: React.FormEvent) => {
     e.preventDefault();
+    if(postState.author === ''){
+      postState.author = 'Anonimous'
+    }
     dispatch(createPost(postState));
 
     setPostState(initialPost);
