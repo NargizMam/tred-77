@@ -1,9 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import { postsReducer } from '../features/PostsList/PostsListSlice';
 
 export const store = configureStore({
   reducer: {
-    posts: postsReducer
   }
 });
 
